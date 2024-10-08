@@ -46,3 +46,6 @@ class CitySevice{
         }
     }
 }
+
+
+module.exports = CitySevice;
