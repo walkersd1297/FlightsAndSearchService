@@ -58,7 +58,7 @@ class CityRepository {
                 const cities = await City.findAll({
                     where:{
                         name:{
-                            [Op.like]: `%${filter.name}%`
+                            [Op.startsWith]: filter.name
                         }
                     }
                 });
