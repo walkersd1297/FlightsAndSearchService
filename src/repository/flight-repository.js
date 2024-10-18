@@ -1,5 +1,5 @@
 const {Flights} = require('../models/index.js');
-const {Op} = require('sequelize');
+const {Op, where} = require('sequelize');
 
 class FlightRepository{
 
@@ -60,6 +60,20 @@ class FlightRepository{
         } catch (error) {
             console.log("Something went wrong in repo file")
             throw (error)
+        }
+    }
+
+    async updateFlights(flightId,data){
+        try {
+            await Flights.update(data,{
+                where:{
+                    id:flightId
+                }
+            });
+            return true;
+        } catch (error) {
+            console.log("Something went wrong in repo file")
+            throw (error);
         }
     }
 }
